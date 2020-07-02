@@ -1,6 +1,5 @@
 from __future__ import division
 from random import Random, random
-from __future__ import print_function
 
 class State(object):
     MUTATION_RATE = 0.03
@@ -66,8 +65,8 @@ class State(object):
                 else:
                     r += '  '
             r += '|n'
-        r += '  ' + '--'*8 + 'n'
-        print self.fitness()
+            r += '  ' + '--'*8 + 'n'
+            print(self._fitness)
         return r
 
 def pickRandomByProbability(populationByProbability):
@@ -97,9 +96,9 @@ if __name__ == '__main__':
     generation = 1
     population = [State() for x in range(populationSize)]
     while not 28 in [x.fitness() for x in population]:
-        print "generation %dtMax fitness: %d" % (generation, max([x.fitness() for x in population]))
+        print("generation %dtMax fitness: %d" % (generation, max([x.fitness() for x in population])))
         population = generateNextPopulation(population, populationSize)
         generation += 1
     for x in population:
         if x.fitness() <= 28:
-            print x
+            print(x)
